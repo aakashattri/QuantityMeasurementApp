@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/commons-beanutils-1.9.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/commons-lang3-3.12.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/commons-collections4-4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/jackson-annotations-3.0-rc5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/jackson-core-3.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/jackson-databind-3.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/jacoco-0.8.14/lib/jacocoagent.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/jacoco-0.8.14/lib/jacococli.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/json-20251224.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/json-20251224-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/junit-platform-console-standalone-6.1.0-M1-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/mysql-connector-j-9.6.0/mysql-connector-j-9.6.0/mysql-connector-j-9.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/opencsv-5.12.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/andre/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0.jar" sourcepath="C:/Users/andre/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.0/junit-jupiter-api-5.11.0-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="maven.groupId" value="org.junit.jupiter"/>
+			<attribute name="maven.artifactId" value="junit-jupiter-api"/>
+			<attribute name="maven.version" value="5.11.0"/>
+			<attribute name="maven.scope" value="test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/andre/Downloads/eclipse-jee-2025-12-R-win32-x86_64/eclipse/plugins/junit-jupiter-api_5.14.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://junit.org/junit5/docs/current/api/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
