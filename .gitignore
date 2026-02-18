@@ -5,6 +5,7 @@
 out/*
 target/
 bin/
+lib/
 
 # OS
 .DS_Store
