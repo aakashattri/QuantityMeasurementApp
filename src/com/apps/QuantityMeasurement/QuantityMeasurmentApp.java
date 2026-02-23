@@ -57,9 +57,16 @@ public class QuantityMeasurmentApp {
 		Inches f2=new Inches(4.5);
 		System.out.println("Equals("+f1.equals(f2)+")");
 	}
+	public static void demonstrateFeetAndInchesEquality() {
+		Length l1=new Length(1, Length.LengthUnit.Feet);
+		Length l2=new Length(12, Length.LengthUnit.Inches);
+		System.out.println("Equals("+l1.compare(l2)+")");
+		
+	}
 	public static void main(String[] args) {
 		demonstrateFeetEquality();
 		demonstrateInchesEquality();
+		demonstrateFeetAndInchesEquality();
 		
 	}
 }
