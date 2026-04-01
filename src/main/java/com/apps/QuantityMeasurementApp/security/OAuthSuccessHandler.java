@@ -27,7 +27,7 @@ public class OAuthSuccessHandler implements AuthenticationSuccessHandler {
                                         Authentication authentication) throws IOException {
 
         OAuth2User user = (OAuth2User) authentication.getPrincipal();
-
+        String picture = user.getAttribute("picture");
         String email = user.getAttribute("email");
         String name = user.getAttribute("name");
 
@@ -39,8 +39,8 @@ public class OAuthSuccessHandler implements AuthenticationSuccessHandler {
             return repo.save(newUser);
         });
 
-        String token = jwtUtil.generateToken(email);
+        String token = jwtUtil.generateToken(email, name, picture);
 
-        response.sendRedirect("http://localhost:3000/login-success?token=" + token);
+        response.sendRedirect("http://127.0.0.1:5500/frontend/login-success.html?token=" + token);
     }
 }

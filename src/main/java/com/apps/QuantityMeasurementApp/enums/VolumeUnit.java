@@ -1,6 +1,7 @@
 package com.apps.QuantityMeasurementApp.enums;
 
 import com.apps.QuantityMeasurementApp.model.Unit;
+import com.apps.QuantityMeasurementApp.model.UnitCategory;
 
 public enum VolumeUnit implements Unit {
 
@@ -8,19 +9,21 @@ public enum VolumeUnit implements Unit {
     MILLILITRE(0.001),
     GALLON(3.78);
 
-    private final double toLitre;
+    private final double factor;
 
-    VolumeUnit(double toLitre) {
-        this.toLitre = toLitre;
+    VolumeUnit(double factor) {
+        this.factor = factor;
     }
 
-    @Override
     public double convertToBaseUnit(double value) {
-        return value * toLitre;
+        return value * factor;
     }
 
-    @Override
     public double convertFromBaseUnit(double baseValue) {
-        return baseValue / toLitre;
+        return baseValue / factor;
+    }
+    @Override
+    public UnitCategory getCategory() {
+        return UnitCategory.VOLUME;
     }
 }

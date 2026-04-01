@@ -2,8 +2,6 @@ package com.apps.QuantityMeasurementApp.model;
 
 import java.util.Objects;
 
-import com.apps.QuantityMeasurementApp.enums.LengthUnit;
-
 public class Quantity<U extends Unit> {
 
     private static final double EPSILON = 0.0001;
@@ -53,8 +51,9 @@ public class Quantity<U extends Unit> {
         if (this == obj) return true;
         if (!(obj instanceof Quantity<?> other)) return false;
 
-        // Ensure same unit category
-        if (this.unit.getClass() != other.unit.getClass()) return false;
+        if (this.unit.getCategory() != other.unit.getCategory()) {
+            throw new IllegalArgumentException("Different unit categories not allowed");
+        }
 
         return Math.abs(this.toBaseUnit() - other.toBaseUnit()) < EPSILON;
     }

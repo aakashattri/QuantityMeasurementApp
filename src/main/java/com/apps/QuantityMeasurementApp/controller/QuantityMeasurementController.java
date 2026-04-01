@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import com.apps.QuantityMeasurementApp.dto.QuantityDTO;
 import com.apps.QuantityMeasurementApp.service.IQuantityMeasurementService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/quantity")
 public class QuantityMeasurementController {

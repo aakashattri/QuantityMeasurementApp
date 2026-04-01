@@ -1,46 +1,51 @@
 package com.apps.QuantityMeasurementApp.enums;
 
-import com.apps.QuantityMeasurementApp.model.SupportsArithmetic;
 import com.apps.QuantityMeasurementApp.model.Unit;
-
-
-
-import java.util.function.Function;
+import com.apps.QuantityMeasurementApp.model.UnitCategory;
 
 public enum TemperatureUnit implements Unit {
 
-    CELSIUS(c -> c, c -> c),
-    FAHRENHEIT(f -> (f - 32) * 5 / 9, c -> (c * 9 / 5) + 32),
-    KELVIN(k -> k - 273.15, c -> c + 273.15);
+    CELSIUS {
+        public double convertToBaseUnit(double value) {
+            return value + 273.15;
+        }
 
-    private final Function<Double, Double> toCelsius;
-    private final Function<Double, Double> fromCelsius;
-    private final SupportsArithmetic supportsArithmetic = () -> false;
+        public double convertFromBaseUnit(double value) {
+            return value - 273.15;
+        }
+    },
 
-    TemperatureUnit(Function<Double, Double> toCelsius, Function<Double, Double> fromCelsius) {
-        this.toCelsius = toCelsius;
-        this.fromCelsius = fromCelsius;
-    }
+    FAHRENHEIT {
+        public double convertToBaseUnit(double value) {
+            return (value - 32) * 5/9 + 273.15;
+        }
 
-    @Override
-    public double convertToBaseUnit(double value) {
-        return toCelsius.apply(value);
-    }
+        public double convertFromBaseUnit(double value) {
+            return (value - 273.15) * 9/5 + 32;
+        }
+    },
 
-    @Override
-    public double convertFromBaseUnit(double baseValue) {
-        return fromCelsius.apply(baseValue);
-    }
+    KELVIN {
+        public double convertToBaseUnit(double value) {
+            return value;
+        }
 
-    @Override
-    public boolean supportsArithmetic() {
-        return supportsArithmetic.isSupported();
-    }
+        public double convertFromBaseUnit(double value) {
+            return value;
+        }
+    };
 
+    // 🚨 IMPORTANT: Temperature does NOT support arithmetic
     @Override
     public void validateOperationSupport(String operation) {
-        throw new UnsupportedOperationException(
+        if (!operation.equals("comparison")) {
+            throw new UnsupportedOperationException(
                 "Temperature does not support operation: " + operation
-        );
+            );
+        }
+    }
+    @Override
+    public UnitCategory getCategory() {
+        return UnitCategory.TEMPERATURE;
     }
 }

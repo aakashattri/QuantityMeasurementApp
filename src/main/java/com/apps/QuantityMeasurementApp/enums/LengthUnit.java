@@ -1,6 +1,7 @@
 package com.apps.QuantityMeasurementApp.enums;
 
 import com.apps.QuantityMeasurementApp.model.Unit;
+import com.apps.QuantityMeasurementApp.model.UnitCategory;
 
 public enum LengthUnit implements Unit {
 
@@ -12,24 +13,21 @@ public enum LengthUnit implements Unit {
     FEET(0.3048),
     YARD(0.9144);
 
-    private final double conversionFactor;
+    private final double factor;
 
-    LengthUnit(double conversionFactor) {
-        this.conversionFactor = conversionFactor;
+    LengthUnit(double factor) {
+        this.factor = factor;
     }
 
-    @Override
     public double convertToBaseUnit(double value) {
-        return value * conversionFactor;
+        return value * factor;
     }
 
-    @Override
     public double convertFromBaseUnit(double baseValue) {
-        return baseValue / conversionFactor;
+        return baseValue / factor;
     }
-
     @Override
-    public void validateOperationSupport(String operation) {
-        // Length supports all operations
+    public UnitCategory getCategory() {
+        return UnitCategory.LENGTH;
     }
 }
