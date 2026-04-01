@@ -2,18 +2,22 @@ package com.apps.QuantityMeasurementApp.model;
 
 public interface Unit {
 
-    // Mandatory conversion
     double convertToBaseUnit(double value);
     double convertFromBaseUnit(double baseValue);
 
-    // Optional arithmetic support (default = true)
-    SupportsArithmetic supportsArithmetic = () -> true;
-
     default boolean supportsArithmetic() {
-        return supportsArithmetic.isSupported();
+        return true;
     }
 
     default void validateOperationSupport(String operation) {
-        // Default: do nothing, all units support operations
+        if (!supportsArithmetic()) {
+            throw new UnsupportedOperationException(
+                "Operation " + operation + " not supported for this unit"
+            );
+        }
     }
+    
+
+    UnitCategory getCategory(); // 🔥 ADD THIS
+ 
 }

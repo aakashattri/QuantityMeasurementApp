@@ -1,6 +1,7 @@
 package com.apps.QuantityMeasurementApp.enums;
 
 import com.apps.QuantityMeasurementApp.model.Unit;
+import com.apps.QuantityMeasurementApp.model.UnitCategory;
 
 public enum WeightUnit implements Unit {
 
@@ -8,17 +9,21 @@ public enum WeightUnit implements Unit {
     GRAM(0.001),
     POUND(0.453592);
 
-    private final double toKg;
+    private final double factor;
 
-    WeightUnit(double toKg) {
-        this.toKg = toKg;
+    WeightUnit(double factor) {
+        this.factor = factor;
     }
 
     public double convertToBaseUnit(double value) {
-        return value * toKg;
+        return value * factor;
     }
 
     public double convertFromBaseUnit(double baseValue) {
-        return baseValue / toKg;
+        return baseValue / factor;
+    }
+    @Override
+    public UnitCategory getCategory() {
+        return UnitCategory.WEIGHT;
     }
 }

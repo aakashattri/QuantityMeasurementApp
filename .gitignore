@@ -1,11 +1,4 @@
-# IntelliJ
-.idea/*
-*.iml
-# Build
-out/*
 target/
-bin/
-lib/
-
-# OS
-.DS_Store
+*.class
+.env
+application.properties
